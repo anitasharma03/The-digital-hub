@@ -1,0 +1,29 @@
+CREATE TABLE Customer_Order (
+    Order_ID VARCHAR(10) PRIMARY KEY,
+    Order_Date DATE NOT NULL,
+    Customer_ID VARCHAR(10)
+    CONSTRAINT Customer_ID_FK FOREIGN KEY (Customer_ID)
+    REFERENCES Customer (Customer_ID),
+    Shipper_ID VARCHAR(10)
+    CONSTRAINT Shipper_ID_FK FOREIGN KEY (Shipper_ID)
+    REFERENCES Shipper (Shipper_ID),
+    CONSTRAINT ID_format CHECK( Order_ID LIKE 'COR%')
+);
+   
+
+INSERT INTO Customer_Order VALUES('COR01','2020-01-08','C01','SH01');
+INSERT INTO Customer_Order VALUES('COR02','2020-01-08','C02','SH02');
+INSERT INTO Customer_Order VALUES('COR03','2020-01-08','C03','SH03');
+INSERT INTO Customer_Order VALUES('COR04','2020-01-08','C04','SH04');
+INSERT INTO Customer_Order VALUES('COR05','2020-01-08','C05','SH05');
+INSERT INTO Customer_Order VALUES('COR06','2020-01-08','C06','SH06');
+INSERT INTO Customer_Order VALUES('COR07','2020-01-08','C07','SH07');
+INSERT INTO Customer_Order VALUES('COR08','2020-01-08','C08','SH08');
+INSERT INTO Customer_Order VALUES('COR09','2020-01-08','C09','SH09');
+INSERT INTO Customer_Order VALUES('COR10','2020-01-08','C10','SH10');
+INSERT INTO Customer_Order VALUES('CO7711','2020-01-08','C10','SH10');
+
+
+SELECT * FROM Customer_Order
+
+EXEC Sp_help  Customer_Order
